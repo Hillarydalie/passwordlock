@@ -3,7 +3,7 @@ class User_Credentials:
     Class that generates new instances of user credentials for their accounts
     """
 
-    list of credentials = [] #Empty user credentials list
+    list_of_credentials = [] #Empty user credentials list
 
     def __init__(self, account_name, account_password):
         self.account_name = account_name
