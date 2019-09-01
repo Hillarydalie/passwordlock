@@ -78,3 +78,6 @@ class TestCredentials(unittest.TestCase):
         '''
 
         self.assertEqual(User_Credentials.display_credentials(), User_Credentials.list_of_credentials)
+
+if __name__ == '__main__':
+    unittest.main()
