@@ -17,8 +17,8 @@ class User_Credentials:
         self.list_of_credentials.append(self)
 
     def delete_credentials(self):
-        """
-        delete_contact method deletes saved credentials from the list of credentials
-        """
+        '''
+        delete_contact method deletes a saved credential from the list_of_creds
+        '''
 
-        User_Credentials.list_of_credentials.remove(self)
+        User_Credentials.list_of_creds.remove(self)
