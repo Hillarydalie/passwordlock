@@ -1,83 +1,80 @@
 import unittest
 from credentials import User_Credentials
 
-import pyperclip #This will help us copy paste
+import pyperclip
 
 class TestCredentials(unittest.TestCase):
-    """
-    Test class that defines the testcase for user_credentials class
-    """
+    '''
+    Test class that defines test cases for the user_credentials class behaviours.
+    '''
 
-    def setup(self):
-        """
-        Set up method to rum each test case
-        """
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_credentials = User_Credentials("Fb", "12@34")
 
-        self.new_credentials = User_Credentials("Twitter", "hdn2019#")
-
-    def test_init_(self):
-        """
-        test_init case to test if theobject initialised properly
-        """
-
-        self.assertEqual(self.new_credentials.account_name,"Twitter")
-        self.assertEqual(self.new_credentials.account_password,"hdn2019#")
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credentials.acc_name,"Fb")
+        self.assertEqual(self.new_credentials.acc_password, "12@34")
 
     def test_save_credentials(self):
-        """
-        test_save_creditials will test if the credentials objects are saved into the list_of_credentials
-        """
-
-        self.new_credentials.save_creditials() #saving new credentials object
-        self.assertEqual(len(User_Credentials.list_of_credentials),1)
-
-    def test_save_multiple_credentials(self):
-        """
-        test_save_multiple_credentials methods adds new multiple credentials to the list_of_credentials
-        """
-
-        self.new_credentials.save_creditials()
-        test_credentials = User_Credentials("Instagram","46019hdhd") #new contact for instagram
-        test_credentials.save_creditials()
-        self.assertEqual(len(User_Credentials.list_of_credentials),2)
-
-    def tearDown(self):
-        """
-        tearDown method does the clean up after each test case has run.
-        """
-
-        User_Credentials.list_of_credentials = []
-
-    def test_delete_credentials(self):
         '''
-        test_delete_credentials to test if we can remove a credential from our list of credentials
+        test_save_credentials test case to test if the credentials object is saved into the list_of_creds
+        '''
+        self.new_credentials.save_credentials()  # saving the new credentials
+        self.assertEqual(len(User_Credentials.list_of_creds), 1)
+
+    def test_save_several_credentials(self):
+        '''
+        test_save_several_credentials method adds new multiple credentials to list_of_creds
         '''
         self.new_credentials.save_credentials()
-        test_credentials = User_Credentials("Instagram", "56@46019hdhd")  # new credential
+        test_credentials = User_Credentials("Pinterest", "56@78")  # new credential
         test_credentials.save_credentials()
+        self.assertEqual(len(User_Credentials.list_of_creds), 2)
 
-        self.new_credentials.delete_credentials()  # Deleting a credentials object
-        self.assertEqual(len(User_Credentials.list_of_credentials), 1)
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        User_Credentials.list_of_creds = []
+
+    def test_delete_credentials(self):
+            '''
+            test_delete_credentials to test if we can remove a credential from our list of credentials
+            '''
+            self.new_credentials.save_credentials()
+            test_credentials = User_Credentials("Pinterest", "56@78")  # new credential
+            test_credentials.save_credentials()
+
+            self.new_credentials.delete_credentials()  # Deleting a credentials object
+            self.assertEqual(len(User_Credentials.list_of_creds), 1)
 
     def test_find_credentials_by_name(self):
         '''
-        test to check if we can find a credentials object by name and display information for the user
+        test to check if we can find a credentials by nameand display information for user
         '''
 
         self.new_credentials.save_credentials()
-        test_credentials = User_Credentials("Instagram", "46019hdhd")  # new credential
+        test_credentials = User_Credentials("Pinterest", "56@78")  # new credential
         test_credentials.save_credentials()
 
-        found_credentials = User_Credentials.find_by_name("Instagram")
+        found_credentials = User_Credentials.find_by_name("Pinterest")
 
-        self.assertEqual(found_credentials.account_name, test_credentials.account_name)
+        self.assertEqual(found_credentials.acc_name, test_credentials.acc_name)
 
     def test_display_all_credentials(self):
         '''
-        method that returns our list of all credentials saved
+        method that returns a list of all credentials saved
         '''
 
-        self.assertEqual(User_Credentials.display_credentials(), User_Credentials.list_of_credentials)
+        self.assertEqual(User_Credentials.display_credentials(), User_Credentials.list_of_creds)
+
 
 if __name__ == '__main__':
     unittest.main()
+
