@@ -3,7 +3,7 @@
 ## By Hillary Dalie
 
 ##Contact Information
-```hidalie@gmail.com```
+Drop me a mail at```hidalie@gmail.com```
 
 ## Description
 An average person may have on the minimum at least 5-10 different accounts which he or she has registered online into. Email and social media, being the most common then entertainment accounts ,job portals...etc. These list can be endless. It then therefore becomes really hard to remember all those passwords or even creating new ones. This application allows one to autogenerate, store and delte passwords for various accounts.
