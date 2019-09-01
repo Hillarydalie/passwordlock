@@ -1,20 +1,19 @@
 class User_Credentials:
-    """
-    Class that generates new instances of user credentials for their accounts
-    """
+    '''
+    Class that generates new instances of user credentials for their accounts.
+    '''
 
-    list_of_credentials = [] #Empty user credentials list
+    list_of_creds = []
 
-    def __init__(self, account_name, account_password):
-        self.account_name = account_name
-        self.account_password = account_password
+    def __init__(self, acc_name, acc_password):
+        self.acc_name = acc_name
+        self.acc_password = acc_password
 
     def save_credentials(self):
-        """
-        Save credentials methods that stores new credentials into the list_of_credentials
-        """
-
-        self.list_of_credentials.append(self)
+        '''
+        save credentials method that stores new credentials into list_of_creds
+        '''
+        self.list_of_creds.append(self)
 
     def delete_credentials(self):
         '''
@@ -24,23 +23,39 @@ class User_Credentials:
         User_Credentials.list_of_creds.remove(self)
 
     @classmethod
-    def find_by_name(cls, account_name):
+    def find_by_name(cls, acc_name):
         '''
         Method that takes in a name and returns a credential that matches that number.
 
         Args:
-            name: account_name to search for
+            name: acc_name to search for
         Returns :
-            The account_name and its password
+            The acc_name and its password
         '''
 
-        for credential in cls.list_of_credentials:
-            if credential.account_name == account_name:
+        for credential in cls.list_of_creds:
+            if credential.acc_name == acc_name:
                 return credential
+
+    @classmethod
+    def credential_exist(cls, name):
+        '''
+        Method that checks if a credentials exists from the list_of_creds.
+        Args:
+            name: acc_name to search if it exists
+        Returns :
+            Boolean: True or false depending if the credentials exists
+        '''
+        for credential in cls.list_of_creds:
+            if credential.acc_name == name:
+                return True
+        return False
 
     @classmethod
     def display_credentials(cls):
         '''
         method that returns the credentials list
         '''
-        return cls.list_of_credentials
+        return cls.list_of_creds
+        
+
