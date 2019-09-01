@@ -22,3 +22,11 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(self.new_credentials.account_name,"Twitter")
         self.assertEqual(self.new_credentials.account_password,"hdn2019#")
+
+    def test_save_credentials(self):
+        """
+        test_save_creditials will test if the credentials objects are saved into the list_of_credentials
+        """
+
+        self.new_credentials.save_creditials() #saving new credentials object
+        self.assertEqual(len(User_Credentials.list_of_credentials),1)
