@@ -5,3 +5,6 @@ class Password:
 
     passwords_list = [] #Empty pasword list.
         #Init the method up here.
+
+    
+            
