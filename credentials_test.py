@@ -37,7 +37,7 @@ class TestCredentials(unittest.TestCase):
         """
 
         self.new_credentials.save_creditials()
-        test_credentials = User_Credentials("Instagram","46#2019hd") #new contact for instagram
+        test_credentials = User_Credentials("Instagram","46019hdhd") #new contact for instagram
         test_credentials.save_creditials()
         self.assertEqual(len(User_Credentials.list_of_credentials),2)
 
@@ -48,11 +48,15 @@ class TestCredentials(unittest.TestCase):
 
         User_Credentials.list_of_credentials = []
 
-    def delete_credentials(self):
+    def test_delete_credentials(self):
         '''
-        delete_contact method deletes a saved credential from the list_of_credentials
+        test_delete_credentials to test if we can remove a credential from our list of credentials
         '''
+        self.new_credentials.save_credentials()
+        test_credentials = User_Credentials("Instagram", "56@46019hdhd")  # new credential
+        test_credentials.save_credentials()
 
-        User_Credentials.list_of_credentials.remove(self)
+        self.new_credentials.delete_credentials()  # Deleting a credentials object
+        self.assertEqual(len(User_Credentials.list_of_credentials), 1)
 
-    
+
