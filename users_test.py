@@ -1,17 +1,23 @@
-import unittest # Importing the unittest module to our test project
-from password import Password # Importing the Password class
+import unittest #unittest module imported
+from users import Users #Importing class User from module user
 
-class TestPassword(unittest.TestCase):
-    """
-    Test class that defines test cases for the passwordlock class behaviours.
-
-    Args:
-        unittest.TestCase: TestCase class that helps in creating test cases
-    """
-
+class TestUser(unittest.TestCase):
+    '''
+    Test class that defines test cases for the user class behaviours.
+    '''
     def setUp(self):
-        """
-        test_init test case to test if the password object is initialized properly
-        """
-        self.new_password = Password("hidalie@gmail.com","hd2019#") # Create password object
-        
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_user = Users("firstUser", "Female", "f1924")
+
+    def test_init(self):
+          '''
+          test_init test case to test if the object is initialized properly
+          '''
+          self.assertEqual(self.new_user.user_name, "firstUser")
+          self.assertEqual(self.new_user.gender, "Female")
+          self.assertEqual(self.new_user.password, "f1924")
+
+if __name__ == '__main__':
+    unittest.main()
