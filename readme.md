@@ -2,7 +2,7 @@
 
 ## By Hillary Dalie
 
-##Contact Information
+## Contact Information
 Drop me a mail at```hidalie@gmail.com```
 
 ## Description
