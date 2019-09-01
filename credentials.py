@@ -37,3 +37,10 @@ class User_Credentials:
         for credential in cls.list_of_credentials:
             if credential.account_name == account_name:
                 return credential
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.list_of_credentials
