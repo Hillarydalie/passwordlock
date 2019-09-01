@@ -22,3 +22,18 @@ class User_Credentials:
         '''
 
         User_Credentials.list_of_creds.remove(self)
+
+    @classmethod
+    def find_by_name(cls, account_name):
+        '''
+        Method that takes in a name and returns a credential that matches that number.
+
+        Args:
+            name: account_name to search for
+        Returns :
+            The account_name and its password
+        '''
+
+        for credential in cls.list_of_credentials:
+            if credential.account_name == account_name:
+                return credential
