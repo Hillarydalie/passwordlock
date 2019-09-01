@@ -47,3 +47,12 @@ class TestCredentials(unittest.TestCase):
         """
 
         User_Credentials.list_of_credentials = []
+
+    def delete_credentials(self):
+        '''
+        delete_contact method deletes a saved credential from the list_of_credentials
+        '''
+
+        User_Credentials.list_of_credentials.remove(self)
+
+    
